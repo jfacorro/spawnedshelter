@@ -28,6 +28,10 @@ clean:
 	rm -rf $(BUILD_DIR)/*
 	rm -rf $(BUILD_DIR)/.git
 
+favicon:
+	cp favicon $(BUILD_DIR)
+	convert favicon.png  -bordercolor white -border 0 (-clone 0 -resize 16x16) (-clone 0 -resize 32x32) (-clone 0 -resize 48x48) (-clone 0 -resize 64x64) -delete 0 -alpha off -colors 256 $(BUILD_DIR)favicon.ico
+
 compile:
 	mkdir -p $(BUILD_DIR)
 	cp -R $(IMG_DIR) $(BUILD_DIR)
